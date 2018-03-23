@@ -19,25 +19,6 @@ It takes as a command one of the following:
 By using DNS resolution to discover other nodes they don't have to be specified explicitly. This should works
 with any system with DNS-based service discovery such as Kontena, Docker Swarm Mode, Consul, etc.
 
-### Examples
-
-#### Docker 1.12 Swarm Mode (cli)
-
-```
- $ docker service create --name galera-seed --replicas 1 -e XTRABACKUP_PASSWORD=<pass> \
-     colinmollenhour/mariadb-galera-swarm seed
- $ docker service create --name galera --replicas 2 -e XTRABACKUP_PASSWORD=<pass> \
-     colinmollenhour/mariadb-galera-swarm node tasks.galera-seed,tasks.galera
- $ docker service rm galera-seed
- $ docker service scale galera=3
-```
-
-#### [Docker 1.13 Swarm Mode (stack)](https://github.com/colinmollenhour/mariadb-galera-swarm/blob/master/examples/swarm)
-
-#### [Kontena](https://github.com/colinmollenhour/mariadb-galera-swarm/blob/master/examples/kontena)
-
-Please submit more examples for Kubernetes, Mesos, etc. and also improvements for existing examples!
-
 ### Environment Variables
 
  - `XTRABACKUP_PASSWORD` (required unless `XTRABACKUP_PASSWORD_FILE` is provided)
