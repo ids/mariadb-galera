@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z $IMAGE_REPO ]; then
+  IMAGE_REPO=idstudios
+fi 
+IMAGE_NAME=mariadb-galera
+MARIADB_VER=10.1
+
+docker build --build-arg imageVer=$MARIADB_VER -t $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER .
+docker push $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER
+
+MARIADB_VER=10.2
+docker build --build-arg imageVer=$MARIADB_VER -t $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER .
+docker push $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER
+
+docker tag $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER $IMAGE_REPO/$IMAGE_NAME:latest
+docker push $IMAGE_REPO/$IMAGE_NAME:latest
