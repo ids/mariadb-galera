@@ -10,6 +10,10 @@ docker build --build-arg imageVer=$MARIADB_VER -t $IMAGE_REPO/$IMAGE_NAME:$MARIA
 docker push $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER
 
 MARIADB_VER=10.2
+docker build  --build-arg imageVer=$MARIADB_VER -t $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER .
+docker push $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER
+
+MARIADB_VER=10.3
 docker build --build-arg imageVer=$MARIADB_VER -t $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER .
 docker push $IMAGE_REPO/$IMAGE_NAME:$MARIADB_VER
 

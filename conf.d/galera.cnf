@@ -11,7 +11,7 @@ wsrep_provider=/usr/lib/galera/libgalera_smm.so
 # Not yet supported by MariaDb as of 10.1.21
 #gcache.recover=yes
 
-#wsrep_provider_options="gcache.size=2048M"
+wsrep_provider_options="gcache.size=2048M"
 #wsrep_slave_threads=4
 
 #wsrep_sst_method=xtrabackup
@@ -19,7 +19,11 @@ wsrep_provider=/usr/lib/galera/libgalera_smm.so
 #
 # xtrabackup-v2 allows for faster SST
 #
-wsrep_sst_method=xtrabackup-v2
+#wsrep_sst_method=xtrabackup-v2
+# xtrabackup-v2 has stopped working since 10.1.26
+
+wsrep_sst_method=rsync
+
 [sst]
 sst-syslog=-1
 progress=/tmp/mysql-console/fifo

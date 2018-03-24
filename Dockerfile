@@ -20,7 +20,7 @@ COPY *.sh                    /usr/local/bin/
 COPY bin/galera-healthcheck  /usr/local/bin/galera-healthcheck
 COPY primary-component.sql   /
 
-EXPOSE 3306 4444 4567 4567/udp 4568 8080 8081
+EXPOSE 3306 3309 4444 4567 4567/udp 4568 8080 8081
 
 HEALTHCHECK --interval=1m --timeout=30s --retries=5 CMD /usr/local/bin/healthcheck.sh
 
